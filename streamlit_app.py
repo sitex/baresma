@@ -37,6 +37,9 @@ def show_result():
 
     st.session_state.result = df.loc[df['sign'] == option, sex].iloc[0]
 
+    if number not in [1, 2]:
+        st.session_state.result += ' по '
+        st.session_state.result += 'Маме' if sex == 'f' else 'Папе'
 
 option = st.radio('1 - Знак зодиака', df['sign'], key='option')
 
